@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LaunchViewController.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,LaunchViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

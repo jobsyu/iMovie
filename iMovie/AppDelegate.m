@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "MovieTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -17,7 +18,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    LaunchViewController *launchView = [[LaunchViewController alloc] init];
+    launchView.delegate = self;
+    self.window.rootViewController = launchView;
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window  makeKeyAndVisible];
     return YES;
+}
+
+-(void)showLaunchViewDidEnd{
+    [[UIApplication sharedApplication] setStatusBarHidden:NO withAnimation:UIStatusBarAnimationNone];
+    MovieTabBarController *root = [[MovieTabBarController alloc]init];
+    self.window.rootViewController = root;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
